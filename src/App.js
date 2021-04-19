@@ -14,19 +14,21 @@ const App = () => {
     { title: 'eight One', text: 'text for Five One', date: '7 April 2020', upVoted: "25" },
     { title: 'nine One', text: 'text for Five One', date: '8 April 2020', upVoted: "525" },
     { title: 'ten One', text: 'text for Five One', date: '9 April 2020', upVoted: "11" },
+  ]);
 
-  ]
-  );
-  const sortedByUpvotes = articles.sort((a, b) => b.upVoted - a.upVoted)
+  console.log(articles.slice(), `art.Slice()`);
+  
+  const sortedByUpvotes = articles.sort((a, b) => b.upVoted - a.upVoted);
 
-  const [updatedArticles, modifyArticles] = useState(sortedByUpvotes)
+  const [updatedArticles, modifyArticles] = useState(sortedByUpvotes);
+
   return (
     <div className="App">
       <header className="App-header">
         <div className="layout-row align-items-center justify-content-center my-20 navigation">
           <label className="form-hint mb-0 text-uppercase font-weight-light" style={{ display: 'block' }}>Sort By</label>
           <button data-testid="most-upvoted-link" style={{ marginRight: '2px  ' }} onClick={() => modifyArticles(articles.slice().sort((a, b) => b.upvotes - a.upvotes))} className="small">Most Upvoted</button>
-          <button data-testid="most-recent-link" onClick={() => modifyArticles(articles.slice().sort((a, b) => new Date(b.date) - new Date(a.date)))} className="small">Most Recent</button>
+          <button data-testid="most-recent-link" style={{ marginRight: '2px  ' }} onClick={() => modifyArticles(articles.slice().sort((a, b) => new Date(b.date) - new Date(a.date)))} className="small">Most Recent</button>
           <Articles articles={updatedArticles} />
 
         </div>

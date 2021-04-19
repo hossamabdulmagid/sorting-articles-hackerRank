@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 const Articles = ({ articles }) => {
     return (
         <div className="card w-50 mx-auto">
